@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 import logo from "../styles/Logo.png";
-import { MdSearch } from "react-icons/md";
+import { MdSearch, MdOutlineShoppingBag } from "react-icons/md";
 export default function Navbar() {
 	return (
 		<header>
@@ -24,9 +24,11 @@ export default function Navbar() {
 			</nav>
 			<div className="searchContainer">
 				<input type="text" placeholder="Search...." />
-				<MdSearch style={{ fontSize: "24px" }} />
+				<MdSearch className="search-icon" style={{ fontSize: "24px" }} />
+				<Link to="/cart">
+					<MdOutlineShoppingBag style={{ fontSize: "30px", color: "#000" }} />
+				</Link>
 			</div>
-			<div className="card"></div>
 		</header>
 	);
 }
