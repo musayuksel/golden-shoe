@@ -14,3 +14,30 @@ body {
 	font-family: "Poppins", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
 		"Fira Sans", "Droid Sans", "Helvetica Neue";
 }
+:root {
+	--text-primary-color: #000;
+	--text-secondary-color: #a0a0a0;
+	--border-primary-color: #303030;
+	--border-secondary-color: #ddd;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+	font-weight: 300;
+}
+/*------- label, input and button default styling ---------*/
+label {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 470;
+}
+
+input {
+	padding: 1em;
+	border-radius: 5px;
+	border: solid 1px var(--secondary-text-color);
+}
