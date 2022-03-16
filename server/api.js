@@ -40,8 +40,12 @@ router.get("/all", (_, res) => {
 			}
 			return eachShoes;
 		}, {});
+		//convert to an array again
+		const shoesGroupArray = Object.keys(shoesGroup).map(
+			(shoeId) => shoesGroup[shoeId]
+		);
 
-		res.send(shoesGroup);
+		res.send(shoesGroupArray);
 	});
 });
 
