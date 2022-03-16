@@ -2,7 +2,8 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	border: 1px solid black;
+	width: 95%;
+	/* border: 1px solid black; */
 }
 .logo {
 	height: 80px;
@@ -24,18 +25,35 @@ nav ul a:hover {
 }
 .searchContainer {
 	position: relative;
+	display: flex;
+	align-items: center;
 }
-.searchContainer svg {
+/* Search icon styles */
+.searchContainer :nth-child(2) {
 	position: absolute;
-	right: 0;
-	top: 20%;
+	right: 4rem;
+	top: 25%;
 }
 .searchContainer input {
 	border: 1px solid var(--border-secondary-color);
+	margin-right: 16px;
 	padding: 0.5rem 0.5rem;
 	transition: all 0.5s ease;
 }
 .searchContainer input:focus {
 	border-color: var(--border-primary-color);
 	outline: none;
+}
+/* cart icon styles */
+.searchContainer a {
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 3rem;
+	transition: all 0.4s ease;
+	width: 3rem;
+}
+.searchContainer a:hover {
+	background-color: var(--border-secondary-color);
 }
