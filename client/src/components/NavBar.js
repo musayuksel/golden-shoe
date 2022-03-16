@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../styles/Navbar.css";
+import logo from "../styles/Logo.png";
+import { MdSearch } from "react-icons/md";
 export default function Navbar() {
 	return (
 		<header>
+			<Link to="/">
+				<img src={logo} alt="logo" className="logo" />
+			</Link>
 			<nav>
-				<img
-					src="https://st4.depositphotos.com/5040187/19757/v/600/depositphotos_197571666-stock-illustration-logo-swoosh-global-red-letter.jpg"
-					alt="logo"
-					className="logo"
-				/>
 				<ul>
 					<li>
 						<Link to="/men">MEN</Link>
@@ -20,11 +21,12 @@ export default function Navbar() {
 						<Link to="/kids">KIDS</Link>
 					</li>
 				</ul>
-				<div className="searchContainer">
-					<input type="text" />
-				</div>
-				<div className="card"></div>
 			</nav>
+			<div className="searchContainer">
+				<input type="text" placeholder="Search...." />
+				<MdSearch style={{ fontSize: "24px" }} />
+			</div>
+			<div className="card"></div>
 		</header>
 	);
 }
