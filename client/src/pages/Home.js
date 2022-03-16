@@ -5,22 +5,22 @@ import "../styles/Home.css";
 import logo from "./logo.svg";
 
 export function Home() {
+	async function fetchData(endPoint, methodObj = { method: "GET" }) {
+		const response = await fetch(`/api${endPoint}`, methodObj);
+		return response;
+	}
 	const [message, setMessage] = useState("Loading...");
+	const [allShoes, setAllShoes] = useState([]);
 
-	useEffect(() => {
-		fetch("/api")
-			.then((res) => {
-				if (!res.ok) {
-					throw new Error(res.statusText);
-				}
-				return res.json();
-			})
-			.then((body) => {
-				setMessage(body.message);
-			})
-			.catch((err) => {
-				console.error(err);
-			});
+	useEffect(async () => {
+		try {
+			const response = await fetchData("/all");
+			const shoes = await response.json();
+			console.log({ shoes });
+			setAllShoes(shoes);
+		} catch (error) {
+			console.log(error);
+		}
 	}, []);
 
 	return (
