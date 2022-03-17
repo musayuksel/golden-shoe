@@ -7,8 +7,8 @@ html {
 *:before,
 *:after {
 	box-sizing: inherit;
-	margin: inherit;
-	padding: inherit;
+	margin: 0;
+	padding: 0;
 }
 body {
 	font-family: "Poppins", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
