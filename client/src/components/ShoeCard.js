@@ -10,7 +10,11 @@ export default function ShoeCard({ shoe }) {
 	return (
 		<Link to={`/shoe/${shoe.shoesId}`}>
 			<li className="productcard">
-				<img src={shoe.imgLink} alt={shoe.productName} />
+				<img
+					src="https://cdn.picpng.com/running_shoes/running-shoes-background-36306.png"
+					alt={shoe.productName}
+				/>
+				{/* <img src={shoe.imgLink} alt={shoe.productName} /> */}
 				<div className="shoe-info-containter">
 					<p className="name">{shoe.productName}</p>
 					<p className="category">{shoe.category}</p>
