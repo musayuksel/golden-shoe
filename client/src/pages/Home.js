@@ -4,6 +4,7 @@ import fetchData from "../utils/fetchData";
 import "../styles/Home.css";
 import logo from "./logo.svg";
 import ShoeCard from "../components/ShoeCard";
+import Categories from "../components/Categories";
 
 export function Home() {
 	const [allShoes, setAllShoes] = useState([]);
@@ -22,6 +23,7 @@ export function Home() {
 	}
 	return (
 		<main role="main">
+			<Categories />
 			<ul className="shoe-cards-container">{shoes(allShoes)}</ul>
 		</main>
 	);
