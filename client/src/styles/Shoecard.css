@@ -7,6 +7,10 @@
 	padding: 0;
 	/* border: 2px solid rgb(0, 102, 255); */
 }
+/* Card Link styles */
+.shoe-cards-container a {
+	text-decoration: none;
+}
 .productcard {
 	display: grid;
 	grid-template-rows: 2fr 1fr;
