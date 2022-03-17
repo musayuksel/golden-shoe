@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/shoecard.css";
+import "../styles/Shoecard.css";
 
 export default function ShoeCard({ shoe }) {
 	//find how many differen color
