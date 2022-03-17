@@ -4,7 +4,6 @@ export default async function getAndUpdateState(endpoint, setState) {
 	try {
 		const response = await fetchData(endpoint);
 		const data = await response.json();
-		console.log({ data });
 		setState(data);
 	} catch (error) {
 		console.log(error);
