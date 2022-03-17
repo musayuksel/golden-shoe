@@ -3,16 +3,16 @@ import path from "path";
 
 export const configuredHelmet = () =>
 	helmet({
-		contentSecurityPolicy: false,
-		// {
-		// 	directives: {
-		// 		defaultSrc: ["'self'"],
-		// 		objectSrc: ["'none'"],
-		// 		scriptSrc: ["'self'", "unpkg.com", "polyfill.io"],
-		// 		styleSrc: ["'self'", "https: 'unsafe-inline'"],
-		// 		upgradeInsecureRequests: [],
-		// 	},
-		// },
+		contentSecurityPolicy: {
+			directives: {
+				defaultSrc: ["'self'"],
+				objectSrc: ["'none'"],
+				scriptSrc: ["'self'", "unpkg.com", "polyfill.io"],
+				styleSrc: ["'self'", "https: 'unsafe-inline'"],
+				imgSrc: ["'self'", "https: data:"],
+				upgradeInsecureRequests: [],
+			},
+		},
 	});
 
 export const httpsOnly = () => (req, res, next) => {
