@@ -16,7 +16,7 @@ body {
 }
 :root {
 	--text-primary-color: #000;
-	--text-secondary-color: #a0a0a0;
+	--text-secondary-color: #555;
 	--border-primary-color: #303030;
 	--border-secondary-color: #ddd;
 }
@@ -50,4 +50,10 @@ input {
 	justify-items: center;
 	grid-template-rows: 100px auto;
 	/* border: 1px solid red; */
+}
+
+/* Main section general styles */
+main {
+	width: 90%;
+	max-width: 1440px;
 }

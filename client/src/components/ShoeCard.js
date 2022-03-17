@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/shoecard.css";
 
 export default function ShoeCard({ shoe }) {
 	//find how many differen color
@@ -6,13 +7,13 @@ export default function ShoeCard({ shoe }) {
 	const colourAmount = [...new Set(colourArr)].length;
 	const colourText = `${colourAmount} Colour${colourAmount > 1 && "s"}`;
 	return (
-		<li>
+		<li className="productcard">
 			<img src={shoe.imgLink} alt={shoe.productName} />
 			<div className="shoe-info-containter">
-				<p>{shoe.productName}</p>
-				<p>{shoe.category}</p>
-				<p>{shoe.price}</p>
-				<p>{colourText}</p>
+				<p className="name">{shoe.productName}</p>
+				<p className="category">{shoe.category}</p>
+				<p className="color">{colourText}</p>
+				<p className="price">£{shoe.price}</p>
 			</div>
 		</li>
 	);

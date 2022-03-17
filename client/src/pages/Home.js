@@ -22,7 +22,7 @@ export function Home() {
 	}
 	return (
 		<main role="main">
-			<ul>{shoes(allShoes)}</ul>
+			<ul className="shoe-cards-container">{shoes(allShoes)}</ul>
 		</main>
 	);
 }

@@ -1,0 +1,58 @@
+/* all cards container */
+.shoe-cards-container {
+	display: grid;
+	grid-template-columns: repeat(1fr);
+	grid-gap: 10px;
+	list-style-type: none;
+	padding: 0;
+	/* border: 2px solid rgb(0, 102, 255); */
+}
+.productcard {
+	display: grid;
+	grid-template-rows: 2fr 1fr;
+	justify-content: stretch;
+	align-items: stretch;
+	height: 100%;
+}
+.productcard img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.shoe-info-containter {
+	background-color: #efefef4b;
+	width: 100%;
+	height: 100%;
+}
+/* Name of shoes */
+.shoe-info-containter .name {
+	font-weight: 500;
+	color: var(--text-primary-color);
+}
+.shoe-info-containter .category,
+.shoe-info-containter .color {
+	font-weight: 300;
+	color: var(--text-secondary-color);
+}
+/* Price of shoes */
+.shoe-info-containter .price {
+	color: var(--text-primary-color);
+	font-weight: 500;
+}
+
+@media screen and (min-width: 475px) {
+	.shoe-cards-container {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+@media screen and (min-width: 875px) {
+	.shoe-cards-container {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+@media screen and (min-width: 1200px) {
+	.shoe-cards-container {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
