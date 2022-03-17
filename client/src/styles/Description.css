@@ -98,9 +98,7 @@ main.description-main {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-gap: 4px;
-	/* align-items: center; */
 	width: 95%;
-	max-width: 500px;
 }
 /* select size text styles */
 .size-items-container span {
