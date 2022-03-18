@@ -1,0 +1,11 @@
+.cart-page {
+	display: grid;
+	grid-template-columns: 1fr;
+	border: 1px solid purple;
+	height: 100%;
+}
+.cart-item img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}

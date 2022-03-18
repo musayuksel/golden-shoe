@@ -3,6 +3,7 @@ export default function groupShoes(arr) {
 	return arr.reduce((eachShoes, currentShoe) => {
 		if (eachShoes[currentShoe.shoesid]) {
 			eachShoes[currentShoe.shoesid].stock.push({
+				stockid: currentShoe.stockid,
 				colour: currentShoe.colour,
 				size: currentShoe.size,
 				amount: currentShoe.amount,
@@ -18,6 +19,7 @@ export default function groupShoes(arr) {
 				imgLink: currentShoe.imglinks,
 				stock: [
 					{
+						stockid: currentShoe.stockid,
 						colour: currentShoe.colour,
 						size: currentShoe.size,
 						amount: currentShoe.amount,
