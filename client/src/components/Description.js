@@ -9,19 +9,35 @@ import {
 	MdLocationOn,
 	MdOutlineFreeCancellation,
 } from "react-icons/md";
-function EachSize({ shoeSize }) {
+function EachSize({ shoeSize, sizesStock }) {
 	return (
-		<li className="size-item" onClick={() => console.log(shoeSize)}>
-			{`UK ${shoeSize}`}
+		<li>
+			<button
+				className={`size-item ${!sizesStock.includes(shoeSize) && "disable"}`}
+				onClick={() => console.log(shoeSize)}
+				disabled={!sizesStock.includes(shoeSize)}
+			>
+				{`UK ${shoeSize}`}
+			</button>
 		</li>
 	);
 }
 export default function Description() {
 	const { shoesId } = useParams();
-	const [[shoe], setShoe] = useState([{}]); //destructure first element of arr
+	const [[shoe], setShoe] = useState([
+		{
+			shoesId: 2,
+			productName: "Sneakers Skate",
+			category: "Outdoor",
+			productUserType: "Kids",
+			price: "45.99",
+			explanation: "Ready, Set, Run...",
+			imgLink: "https://api.lorem.space/image/shoes?w=250&h=250",
+			stock: [],
+		},
+	]); //destructure first element of arr
 	let explanations = [];
 	//get data from db and update state
-	//assumption= every shoe has max 12 different size
 	//if category===Kids start 2 ,category===Women start 3.5 else start 5 for sizes
 	let sizeStartPoint = 5.5;
 	useEffect(() => getAndUpdateState(`/shoe/${shoesId}`, setShoe), [shoesId]);
@@ -43,10 +59,22 @@ export default function Description() {
 		));
 	}
 
+	//assumption= every shoe has max 12 different size
+	//find all sizes from stock
+	const sizesStock = shoe.stock.reduce((sizes, curr) => {
+		return !sizes.includes(curr.size) && curr.amount > 0
+			? sizes.concat(+curr.size)
+			: sizes;
+	}, []);
+	console.log({ sizesStock });
 	const sizeTable = Array(12)
 		.fill(null)
 		.map((_, index) => (
-			<EachSize shoeSize={sizeStartPoint + index / 2} key={nanoid(5)} />
+			<EachSize
+				sizesStock={sizesStock}
+				shoeSize={sizeStartPoint + index / 2}
+				key={nanoid(5)}
+			/>
 		));
 
 	return (
