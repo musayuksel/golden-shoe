@@ -10,7 +10,6 @@ import {
 	MdOutlineFreeCancellation,
 } from "react-icons/md";
 function EachSize({ shoeSize, sizesStock, setChoosedShoeNum, choosedShoeNum }) {
-	// console.log(first);
 	return (
 		<li>
 			<button
@@ -40,7 +39,6 @@ export default function Description() {
 		},
 	]); //destructure first element of arr
 	const [choosedShoeNum, setChoosedShoeNum] = useState(0);
-	// console.log({ choosedShoeNum });
 	let explanations = [];
 	//get data from db and update state
 	//if category===Kids start 2 ,category===Women start 3.5 else start 5 for sizes
@@ -85,11 +83,9 @@ export default function Description() {
 	const navigate = useNavigate();
 	function handleAddBag() {
 		const localId = nanoid(4);
-		// console.log({ localId });
 		const cartItemsLocalStorage = JSON.parse(
 			localStorage.getItem("gs-cart") || "[]"
 		);
-		// console.log("once>>", cartItemsLocalStorage);
 		const storegeItem = {
 			...shoe,
 			choosedColor: "white",
@@ -98,10 +94,7 @@ export default function Description() {
 		};
 		cartItemsLocalStorage.unshift(storegeItem);
 		localStorage.setItem("gs-cart", JSON.stringify(cartItemsLocalStorage));
-		// console.log("sonra>>>", { cartItemsLocalStorage });
-		// setTimeout(() => {
 		navigate("/cart");
-		// }, 100);
 	}
 	return (
 		<>
