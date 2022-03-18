@@ -9,21 +9,15 @@ import {
 	MdLocationOn,
 	MdOutlineFreeCancellation,
 } from "react-icons/md";
-function EachSize({ shoeSize, sizesStock, setChoosedShoeNum, choosedShoeNum }) {
-	return (
-		<li>
-			<button
-				className={`size-item ${
-					!sizesStock.includes(shoeSize) ? "disable" : ""
-				} ${choosedShoeNum === shoeSize && "choosed"}`}
-				onClick={() => setChoosedShoeNum(shoeSize)}
-				disabled={!sizesStock.includes(shoeSize)}
-			>
-				{`UK ${shoeSize}`}
-			</button>
-		</li>
-	);
-}
+import {
+	updateSizeStartPoint,
+	addExplanation,
+	sizesTemplate,
+	updateLocalStorage,
+	findDifferentSizes,
+} from "../utils/descriptionHelperFunctions";
+import EachSizeOfTable from "./EachSizeOfTable";
+
 export default function Description() {
 	const { shoesId } = useParams();
 	const [[shoe], setShoe] = useState([
@@ -39,63 +33,33 @@ export default function Description() {
 		},
 	]); //destructure first element of arr
 	const [choosedShoeNum, setChoosedShoeNum] = useState(0);
-	let explanations = [];
-	//get data from db and update state
+
+	const explanations = addExplanation(shoe) || [];
+
 	//if category===Kids start 2 ,category===Women start 3.5 else start 5 for sizes
-	let sizeStartPoint = 5.5;
+	const sizeStartPoint = updateSizeStartPoint(shoe) || 5.5;
+
+	//get data from db and update state
 	useEffect(() => getAndUpdateState(`/shoe/${shoesId}`, setShoe), [shoesId]);
 
-	if (shoe.productUserType) {
-		sizeStartPoint =
-			shoe.productUserType &&
-			shoe.productUserType.toLowerCase().includes("kids")
-				? 2
-				: shoe.productUserType.toLowerCase().includes("women")
-				? 3.5
-				: 5.5;
-	}
-	if (shoe.explanation) {
-		explanations = shoe.explanation.split(".").map((exp) => (
-			<li className="explanation-item" key={nanoid(5)}>
-				{exp}.
-			</li>
-		));
-	}
-
-	//assumption= every shoe has max 12 different size
 	//find all sizes from stock
-	const sizesStock = shoe.stock.reduce((sizes, curr) => {
-		return !sizes.includes(curr.size) && curr.amount > 0
-			? sizes.concat(+curr.size)
-			: sizes;
-	}, []);
-	const sizeTable = Array(12)
-		.fill(null)
-		.map((_, index) => (
-			<EachSize
-				choosedShoeNum={choosedShoeNum}
-				setChoosedShoeNum={setChoosedShoeNum}
-				sizesStock={sizesStock}
-				shoeSize={sizeStartPoint + index / 2}
-				key={nanoid(5)}
-			/>
-		));
+	const sizesStock = findDifferentSizes(shoe.stock);
+	//assumption = every shoe has max 12 different size
+	const sizeTable = sizesTemplate.map((_, index) => (
+		<EachSizeOfTable
+			choosedShoeNum={choosedShoeNum}
+			setChoosedShoeNum={setChoosedShoeNum}
+			sizesStock={sizesStock}
+			shoeSize={sizeStartPoint + index / 2}
+			key={nanoid(5)}
+		/>
+	));
+	// Add data to localstorage and redirect to the cart page
 	const navigate = useNavigate();
 	function handleAddBag() {
-		const localId = nanoid(4);
-		const cartItemsLocalStorage = JSON.parse(
-			localStorage.getItem("gs-cart") || "[]"
-		);
-		const storegeItem = {
-			...shoe,
-			choosedColor: "white",
-			choosedSize: choosedShoeNum,
-			localId,
-		};
-		cartItemsLocalStorage.unshift(storegeItem);
-		localStorage.setItem("gs-cart", JSON.stringify(cartItemsLocalStorage));
-		navigate("/cart");
+		updateLocalStorage(shoe, choosedShoeNum, navigate);
 	}
+
 	return (
 		<>
 			<main className="description-main">
