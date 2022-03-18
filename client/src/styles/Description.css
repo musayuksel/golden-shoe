@@ -106,19 +106,28 @@ main.description-main {
 	font-weight: 300;
 	grid-column: 1/4;
 }
+
 .size-item {
 	border: 1px solid var(--border-secondary-color);
+	background-color: #fff;
 	border-radius: 3px;
 	cursor: pointer;
 	font-weight: 300;
 	padding: 0.5rem 1rem;
 	text-align: center;
 	transition: all 0.3s ease;
+	width: 100%;
 }
 .size-item:hover {
 	border-color: var(--border-primary-color);
 }
-
+.size-item.disable {
+	background-color: var(--border-secondary-color);
+	cursor: not-allowed;
+}
+.size-item.disable:hover {
+	border-color: var(--border-secondary-color);
+}
 /* Add to bag button style */
 .add-to-cart {
 	background-color: var(--text-primary-color);
