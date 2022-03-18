@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import getAndUpdateState from "../utils/getAndUpdateState";
 import { nanoid } from "nanoid";
 import "../styles/Description.css";
@@ -40,7 +40,7 @@ export default function Description() {
 		},
 	]); //destructure first element of arr
 	const [choosedShoeNum, setChoosedShoeNum] = useState(0);
-	console.log({ choosedShoeNum });
+	// console.log({ choosedShoeNum });
 	let explanations = [];
 	//get data from db and update state
 	//if category===Kids start 2 ,category===Women start 3.5 else start 5 for sizes
@@ -82,7 +82,27 @@ export default function Description() {
 				key={nanoid(5)}
 			/>
 		));
-
+	const navigate = useNavigate();
+	function handleAddBag() {
+		const localId = nanoid(4);
+		// console.log({ localId });
+		const cartItemsLocalStorage = JSON.parse(
+			localStorage.getItem("gs-cart") || "[]"
+		);
+		// console.log("once>>", cartItemsLocalStorage);
+		const storegeItem = {
+			...shoe,
+			choosedColor: "white",
+			choosedSize: choosedShoeNum,
+			localId,
+		};
+		cartItemsLocalStorage.unshift(storegeItem);
+		localStorage.setItem("gs-cart", JSON.stringify(cartItemsLocalStorage));
+		// console.log("sonra>>>", { cartItemsLocalStorage });
+		// setTimeout(() => {
+		navigate("/cart");
+		// }, 100);
+	}
 	return (
 		<>
 			<main className="description-main">
@@ -119,9 +139,9 @@ export default function Description() {
 						<span>Select size</span>
 						{sizeTable}
 					</ul>
-					<Link className="add-to-cart" to={"/cart"}>
+					<button className="add-to-cart" onClick={handleAddBag}>
 						Add To Bag
-					</Link>
+					</button>
 
 					<p className="description-free-pickup">Free Pick-up</p>
 
