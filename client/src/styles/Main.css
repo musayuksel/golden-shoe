@@ -44,11 +44,11 @@ input {
 /*----------- Main App class ------------*/
 #root {
 	/* width: 100%; */
-	min-height: 100vh;
+	/* min-height: 100vh; */
 	display: grid;
 	grid-gap: 1rem;
 	justify-items: center;
-	grid-template-rows: 100px auto;
+	/* grid-template-rows: 100px auto; */
 	/* border: 1px solid red; */
 }
 
