@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import getAndUpdateState from "../utils/getAndUpdateState";
 import { nanoid } from "nanoid";
 import "../styles/Description.css";
@@ -85,7 +85,9 @@ export default function Description() {
 						<span>Select size</span>
 						{sizeTable}
 					</ul>
-					<button className="add-to-cart">Add To Bag</button>
+					<Link className="add-to-cart" to={"/cart"}>
+						Add To Bag
+					</Link>
 
 					<p className="description-free-pickup">Free Pick-up</p>
 
