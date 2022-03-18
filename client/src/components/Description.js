@@ -9,11 +9,14 @@ import {
 	MdLocationOn,
 	MdOutlineFreeCancellation,
 } from "react-icons/md";
-function EachSize({ shoeSize, sizesStock, setChoosedShoeNum }) {
+function EachSize({ shoeSize, sizesStock, setChoosedShoeNum, choosedShoeNum }) {
+	// console.log(first);
 	return (
 		<li>
 			<button
-				className={`size-item ${!sizesStock.includes(shoeSize) && "disable"}`}
+				className={`size-item ${
+					!sizesStock.includes(shoeSize) ? "disable" : ""
+				} ${choosedShoeNum === shoeSize && "choosed"}`}
 				onClick={() => setChoosedShoeNum(shoeSize)}
 				disabled={!sizesStock.includes(shoeSize)}
 			>
@@ -72,6 +75,7 @@ export default function Description() {
 		.fill(null)
 		.map((_, index) => (
 			<EachSize
+				choosedShoeNum={choosedShoeNum}
 				setChoosedShoeNum={setChoosedShoeNum}
 				sizesStock={sizesStock}
 				shoeSize={sizeStartPoint + index / 2}
