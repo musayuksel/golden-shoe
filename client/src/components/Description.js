@@ -9,12 +9,12 @@ import {
 	MdLocationOn,
 	MdOutlineFreeCancellation,
 } from "react-icons/md";
-function EachSize({ shoeSize, sizesStock }) {
+function EachSize({ shoeSize, sizesStock, setChoosedShoeNum }) {
 	return (
 		<li>
 			<button
 				className={`size-item ${!sizesStock.includes(shoeSize) && "disable"}`}
-				onClick={() => console.log(shoeSize)}
+				onClick={() => setChoosedShoeNum(shoeSize)}
 				disabled={!sizesStock.includes(shoeSize)}
 			>
 				{`UK ${shoeSize}`}
@@ -36,6 +36,8 @@ export default function Description() {
 			stock: [],
 		},
 	]); //destructure first element of arr
+	const [choosedShoeNum, setChoosedShoeNum] = useState(0);
+	console.log({ choosedShoeNum });
 	let explanations = [];
 	//get data from db and update state
 	//if category===Kids start 2 ,category===Women start 3.5 else start 5 for sizes
@@ -66,11 +68,11 @@ export default function Description() {
 			? sizes.concat(+curr.size)
 			: sizes;
 	}, []);
-	console.log({ sizesStock });
 	const sizeTable = Array(12)
 		.fill(null)
 		.map((_, index) => (
 			<EachSize
+				setChoosedShoeNum={setChoosedShoeNum}
 				sizesStock={sizesStock}
 				shoeSize={sizeStartPoint + index / 2}
 				key={nanoid(5)}
