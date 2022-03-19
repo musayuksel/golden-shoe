@@ -39,6 +39,7 @@ export function updateLocalStorage(shoe, choosedShoeNum, navigate) {
 	const storegeItem = {
 		...shoe,
 		choosedSize: choosedShoeNum,
+		choosedAmount: 1,
 		localId,
 	};
 	cartItemsLocalStorage.unshift(storegeItem);
