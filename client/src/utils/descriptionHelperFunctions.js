@@ -38,7 +38,6 @@ export function updateLocalStorage(shoe, choosedShoeNum, navigate) {
 	);
 	const storegeItem = {
 		...shoe,
-		choosedColor: "white",
 		choosedSize: choosedShoeNum,
 		localId,
 	};
