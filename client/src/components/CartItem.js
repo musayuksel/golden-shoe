@@ -1,19 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { nanoid } from "nanoid";
+import {
+	findStockNumAmount,
+	updateStorageAmount,
+	dropdownOptions,
+} from "../utils/cartItemHelperFunctions";
 
 export default function CartItem({ item }) {
-	const stockNumberAmount = item.stock.filter(
-		(shoe) => +shoe.size === item.choosedSize
-	);
-	const amountOptions = Array(
-		stockNumberAmount[0].amount <= 5 ? stockNumberAmount[0].amount : 5
-	)
-		.fill(null)
-		.map((_, index) => (
-			<option key={nanoid(4)} value={index + 1}>
-				{index + 1}
-			</option>
-		));
+	const [choosedAmount, setChoosedAmount] = useState(item.choosedAmount);
+	const stockNumberAmount = findStockNumAmount(item);
+	const amountOptions = dropdownOptions(stockNumberAmount);
+	function selectHandle(event) {
+		//find product from local storage and update amount
+		updateStorageAmount(item, +event.target.value);
+		setChoosedAmount(+event.target.value);
+	}
+
 	return (
 		<div className="cart-item">
 			<img
@@ -25,7 +27,9 @@ export default function CartItem({ item }) {
 				<p>{item.productName}</p>
 				<p>{item.category}</p>
 				<p>{item.choosedSize}</p>
-				<select name="itemCount">{amountOptions}</select>
+				<select value={choosedAmount} name="itemCount" onChange={selectHandle}>
+					{amountOptions}
+				</select>
 				<p>{item.price}</p>
 				<button>Close</button>
 			</div>
