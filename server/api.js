@@ -56,10 +56,22 @@ router.put("/sold", (req, res) => {
 	WHERE stock.id = val.stockId;`;
 	pool.query(selectQuery, [], (error, result) => {
 		if (error) {
-			return response.status(500).send({ msg: "Database ERROR" });
+			return res.status(500).send({ msg: "Database ERROR" });
 		}
 		res.sendStatus(204);
 	});
 	// console.log({ soldItems, selectQuery });
+});
+
+// This endpoint will fill out the DB stock randomly. (0-9)includes
+router.get("/stock", (req, res) => {
+	const setQuery = "update stock set amount = floor(random() * 10);";
+	pool.query(setQuery, [], (error, result) => {
+		if (error) {
+			console.log(error);
+			return res.status(500).send({ msg: "Database ERROR" });
+		}
+		res.send({ msg: "Database stock updated with new products." });
+	});
 });
 export default router;
