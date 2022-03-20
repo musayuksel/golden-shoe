@@ -34,9 +34,10 @@ export default async function updateStockAmount(
 			setCartItems([]);
 			navigate("/success");
 		}, 1500);
-	}
-	if (response.status === 500) {
+	} else {
+		// if (response.status === 500) {
 		setIsSubmitting(false);
 		navigate("/error");
+		// }
 	}
 }
