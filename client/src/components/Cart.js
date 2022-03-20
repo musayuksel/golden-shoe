@@ -8,21 +8,34 @@ import LoadingAnimation from "./LoadingAnimation";
 export default function Cart() {
 	const [cartItems, setCartItems] = useState([]);
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	console.log({ cartItems });
+	const [isAmountChange, setIsAmountChange] = useState(false);
+	const [voucherAmount, setVoucherAmount] = useState(0);
 	useEffect(() => {
 		const cartItemsLocalStorage = JSON.parse(
 			localStorage.getItem("gs-cart") || "[]"
 		);
 		setCartItems(cartItemsLocalStorage);
-	}, []);
+	}, [isAmountChange]);
 
+	const totalPrice = cartItems.reduce(
+		(total, curr) => total + +curr.price * curr.choosedAmount,
+		0
+	);
 	useEffect(
 		() => localStorage.setItem("gs-cart", JSON.stringify(cartItems)),
 		[cartItems]
 	);
-
+	function deleteItemFromCart(localId) {
+		const itemDeletedCart = cartItems.filter((item) => item.localId != localId);
+		setCartItems(itemDeletedCart);
+	}
 	const allItems = cartItems.map((item) => (
-		<CartItem key={item.localId} item={item} />
+		<CartItem
+			key={item.localId}
+			item={item}
+			deleteItemFromCart={deleteItemFromCart}
+			setIsAmountChange={setIsAmountChange}
+		/>
 	));
 
 	const navigate = useNavigate();
@@ -47,7 +60,7 @@ export default function Cart() {
 					<p>Order Summary</p>
 					<div className="amount">
 						<p>3 items</p>
-						<p>£100</p>
+						<p>{`£${Math.round(totalPrice * 100) / 100}`}</p>
 					</div>
 					<div className="cart-summary-delivery">
 						<p>Delivery</p>
@@ -55,7 +68,7 @@ export default function Cart() {
 					</div>
 					<div className="cart-summary-total">
 						<p>TOTAL</p>
-						<p>£300</p>
+						<p>{`£${Math.round(totalPrice * 100) / 100 - voucherAmount}`}</p>
 					</div>
 					<div className="cart-summary-vouchers">
 						<input
