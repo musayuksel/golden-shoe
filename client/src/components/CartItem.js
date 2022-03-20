@@ -6,7 +6,11 @@ import {
 	dropdownOptions,
 } from "../utils/cartItemHelperFunctions";
 
-export default function CartItem({ item, deleteItemFromCart }) {
+export default function CartItem({
+	item,
+	deleteItemFromCart,
+	setIsAmountChange,
+}) {
 	const [choosedAmount, setChoosedAmount] = useState(item.choosedAmount);
 	const stockNumberAmount = findStockNumAmount(item);
 	const amountOptions = dropdownOptions(stockNumberAmount);
@@ -14,6 +18,7 @@ export default function CartItem({ item, deleteItemFromCart }) {
 		//find product from local storage and update amount
 		updateStorageAmount(item, +event.target.value);
 		setTimeout(setChoosedAmount(+event.target.value), 0);
+		setIsAmountChange((prev) => !prev);
 	}
 	function deleteHandle() {
 		deleteItemFromCart(item.localId);
