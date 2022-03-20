@@ -44,4 +44,22 @@ router.get("/shoe/:id", (req, res) => {
 	});
 });
 
+//Cart sold items update
+router.put("/sold", (req, res) => {
+	const soldItems = req.body.soldItems;
+	const updateValues = soldItems
+		.map((item) => `(${item.stockId},${item.choosedAmount})`)
+		.join();
+
+	const selectQuery = `UPDATE stock SET amount = stock.amount-val.soldItemAmount 
+	FROM(VALUES ${updateValues}) AS val (stockId,soldItemAmount)
+	WHERE stock.id = val.stockId;`;
+	pool.query(selectQuery, [], (error, result) => {
+		if (error) {
+			return response.status(500).send({ msg: "Database ERROR" });
+		}
+		res.sendStatus(204);
+	});
+	// console.log({ soldItems, selectQuery });
+});
 export default router;
