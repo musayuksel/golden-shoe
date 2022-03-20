@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import {
 	findStockNumAmount,
@@ -13,16 +13,19 @@ export default function CartItem({ item }) {
 	function selectHandle(event) {
 		//find product from local storage and update amount
 		updateStorageAmount(item, +event.target.value);
-		setChoosedAmount(+event.target.value);
+		setTimeout(setChoosedAmount(+event.target.value), 0);
 	}
 
 	return (
 		<div className="cart-item">
-			<img
-				src="https://cdn.picpng.com/running_shoes/running-shoes-background-36306.png"
-				// src={item.imgLink}
-				alt={item.productName}
-			/>
+			<div className="cart-item-img-container">
+				<img
+					src="https://cdn.picpng.com/running_shoes/running-shoes-background-36306.png"
+					// src={item.imgLink}
+					alt={item.productName}
+				/>
+			</div>
+
 			<div className="cart-item-explanations">
 				<p>{item.productName}</p>
 				<p>{item.category}</p>
