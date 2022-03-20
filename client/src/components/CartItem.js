@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import {
 	findStockNumAmount,
@@ -13,7 +13,7 @@ export default function CartItem({ item }) {
 	function selectHandle(event) {
 		//find product from local storage and update amount
 		updateStorageAmount(item, +event.target.value);
-		setChoosedAmount(+event.target.value);
+		setTimeout(setChoosedAmount(+event.target.value), 0);
 	}
 
 	return (
