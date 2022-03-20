@@ -20,9 +20,17 @@ export default function Cart() {
 		() => localStorage.setItem("gs-cart", JSON.stringify(cartItems)),
 		[cartItems]
 	);
-
+	function deleteItemFromCart(localId) {
+		const itemDeletedCart = cartItems.filter((item) => item.localId != localId);
+		console.log({ itemDeletedCart });
+		setCartItems(itemDeletedCart);
+	}
 	const allItems = cartItems.map((item) => (
-		<CartItem key={item.localId} item={item} />
+		<CartItem
+			key={item.localId}
+			item={item}
+			deleteItemFromCart={deleteItemFromCart}
+		/>
 	));
 
 	const navigate = useNavigate();
