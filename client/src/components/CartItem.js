@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { nanoid } from "nanoid";
+import React, { useState } from "react";
 import {
 	findStockNumAmount,
 	updateStorageAmount,
 	dropdownOptions,
 } from "../utils/cartItemHelperFunctions";
+import { MdClose } from "react-icons/md";
 
 export default function CartItem({
 	item,
@@ -36,12 +36,14 @@ export default function CartItem({
 			<div className="cart-item-explanations">
 				<p>{item.productName}</p>
 				<p>{item.category}</p>
-				<p>{item.choosedSize}</p>
+				<p>size: {item.choosedSize}</p>
+				<p className="price">£{item.price}</p>
 				<select value={choosedAmount} name="itemCount" onChange={selectHandle}>
 					{amountOptions}
 				</select>
-				<p>{item.price}</p>
-				<button onClick={deleteHandle}>DELETE FROM CART</button>
+				<button className="cart-item-close" onClick={deleteHandle}>
+					<MdClose />
+				</button>
 			</div>
 		</div>
 	);
