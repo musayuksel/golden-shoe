@@ -5,6 +5,7 @@ import updateStockAmount from "../utils/updateStockAmount";
 import CartItem from "./CartItem";
 import LoadingAnimation from "./LoadingAnimation";
 import { applyVoucher, findTotalPrice } from "../utils/cartHelperFucntions";
+import { MdOutlineFreeCancellation } from "react-icons/md";
 
 export default function Cart() {
 	const [cartItems, setCartItems] = useState([]);
@@ -60,6 +61,13 @@ export default function Cart() {
 	return (
 		<>
 			<LoadingAnimation isLoading={isSubmitting} />
+			<div style={{ width: "100%" }}>
+				<p className="cancel-slider">
+					<span>{<MdOutlineFreeCancellation />}</span>
+					You can return your order for any reason, free of charge, within 60
+					days.
+				</p>
+			</div>
 			<section className="cart-page">
 				<article className="cart-header">
 					<h2>Your Bag</h2>
@@ -70,9 +78,11 @@ export default function Cart() {
 				</article>
 				<article className="cart-items-container">{allItems}</article>
 				<article className="cart-summary">
-					<p>Order Summary</p>
+					<p className="summary">Order Summary</p>
 					<div className="amount">
-						<p>3 items</p>
+						<p>{`${cartItems.length} item${
+							cartItems.length > 1 ? "s" : ""
+						}`}</p>
 						<p>{`£${Math.round(totalPrice * 100) / 100}`}</p>
 					</div>
 					<div className="cart-summary-delivery">
@@ -93,11 +103,18 @@ export default function Cart() {
 									setVoucherCode(e.target.value.toUpperCase().trim())
 								}
 							/>
-							<button type="submit">Add Voucher</button>
+							<button
+								className={`${voucherCode.length > 0 ? "open" : ""}`}
+								type="submit"
+							>
+								APPLY
+							</button>
 						</form>
 					</div>
 				</article>
-				<button onClick={() => handleCheckout()}>CHECKOUT</button>
+				<button className="checkout-btn" onClick={() => handleCheckout()}>
+					CHECKOUT
+				</button>
 			</section>
 		</>
 	);

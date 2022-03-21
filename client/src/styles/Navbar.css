@@ -2,16 +2,52 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	width: 95%;
-	/* border: 1px solid black; */
+	position: relative;
+	width: 100%;
+}
+/* Habmurger menu styles */
+.hamburger {
+	background-color: #fff;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	transition: all 0.4s ease;
+}
+.hamburger svg {
+	width: 2.5rem;
+	height: 2.5rem;
+	z-index: 2;
+}
+/* hamburger button styles */
+.home-page-link {
+	display: inline-flex;
+	align-items: center;
 }
 .logo {
-	height: 80px;
+	/* display: none; */
+	height: 40px;
+	object-fit: contain;
 }
-
 nav ul {
+	display: none;
+}
+nav.open ul {
+	animation: menu-open 0.7s ease;
+	position: absolute;
+	background-color: #fff;
 	display: flex;
+	flex-direction: column;
 	list-style-type: none;
+	padding: 3rem 0;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 1;
+}
+nav.open ul li {
+	margin-bottom: 10px;
+	padding-left: 1rem;
 }
 nav ul a {
 	color: var(--text-primary-color);
@@ -19,6 +55,7 @@ nav ul a {
 	text-decoration: none;
 	border-bottom: 2px solid #fff;
 	transition: all 0.4s ease;
+	margin-bottom: 15px;
 }
 nav ul a:hover {
 	border-color: #000;
@@ -34,26 +71,95 @@ nav ul a:hover {
 	right: 4rem;
 	top: 25%;
 }
+.searchContainer > :nth-child(2) {
+	cursor: pointer;
+}
 .searchContainer input {
+	display: none;
 	border: 1px solid var(--border-secondary-color);
 	margin-right: 16px;
 	padding: 0.5rem 0.5rem;
 	transition: all 0.5s ease;
+}
+.searchContainer input.open {
+	display: block;
 }
 .searchContainer input:focus {
 	border-color: var(--border-primary-color);
 	outline: none;
 }
 /* cart icon styles */
-.searchContainer a {
+.nav-cart-icon button {
+	background-color: #fff;
+	border: none;
 	border-radius: 50%;
+	cursor: pointer;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 3rem;
 	transition: all 0.4s ease;
-	width: 3rem;
+	padding: 10px;
 }
-.searchContainer a:hover {
+.nav-cart-icon button:hover {
 	background-color: var(--border-secondary-color);
+}
+
+@media only screen and (min-width: 620px) {
+	.hamburger {
+		display: none;
+	}
+	.logo {
+		height: 70px;
+	}
+	nav ul {
+		display: flex;
+		list-style-type: none;
+	}
+	.searchContainer input {
+		display: block;
+	}
+}
+/* CART VOUCHER styles */
+.cart-summary-vouchers {
+	position: relative;
+}
+.cart-summary-vouchers form {
+	display: flex;
+	flex-direction: column;
+}
+.cart-summary-vouchers input {
+	border: 1px solid var(--border-secondary-color);
+	padding: 0.4rem 0.4rem;
+}
+.cart-summary-vouchers input:focus {
+	border-color: var(--border-primary-color);
+	outline: none;
+}
+.cart-summary-vouchers button {
+	border: none;
+	color: #fff;
+	cursor: pointer;
+	display: none;
+	margin: 1rem 0;
+	padding: 0.75rem 0;
+	transition: all 0.4s ease;
+}
+.cart-summary-vouchers button.open {
+	display: block;
+	background-color: var(--text-primary-color);
+}
+.cart-summary-vouchers button:hover {
+	opacity: 0.8;
+}
+/* CHECKOUT BUTTON styles */
+.checkout-btn {
+	cursor: pointer;
+}
+@keyframes menu-open {
+	0% {
+		transform: translateY(-100%);
+	}
+	100% {
+		transform: translateY(0%);
+	}
 }

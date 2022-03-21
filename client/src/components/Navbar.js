@@ -1,16 +1,30 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 import logo from "../styles/Logo.png";
-import { MdSearch, MdOutlineShoppingBag } from "react-icons/md";
+import {
+	MdSearch,
+	MdOutlineShoppingBag,
+	MdOutlineMenu,
+	MdClose,
+} from "react-icons/md";
 export default function Navbar() {
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [isSearchOpen, setIsSearchOpen] = useState(false);
+	const navigate = useNavigate();
 	return (
 		<header>
-			<Link to="/">
+			<button
+				className="hamburger"
+				onClick={() => setIsMenuOpen((prev) => !prev)}
+			>
+				{!isMenuOpen ? <MdOutlineMenu /> : <MdClose />}
+			</button>
+			<Link className="home-page-link" to="/">
 				<img src={logo} alt="logo" className="logo" />
 			</Link>
-			<nav>
-				<ul>
+			<nav className={`${isMenuOpen ? "open" : ""}`}>
+				<ul onClick={() => setIsMenuOpen(false)}>
 					<li>
 						<Link to="/men">MEN</Link>
 					</li>
@@ -23,11 +37,20 @@ export default function Navbar() {
 				</ul>
 			</nav>
 			<div className="searchContainer">
-				<input type="text" placeholder="Search...." />
-				<MdSearch className="search-icon" style={{ fontSize: "24px" }} />
-				<Link to="/cart">
-					<MdOutlineShoppingBag style={{ fontSize: "30px", color: "#000" }} />
-				</Link>
+				<input
+					className={`${isSearchOpen ? "open" : ""}`}
+					type="text"
+					placeholder="Search...."
+				/>
+				<MdSearch
+					onClick={() => setIsSearchOpen((prev) => !prev)}
+					style={{ fontSize: "24px" }}
+				/>
+				<div className="nav-cart-icon">
+					<button onClick={() => navigate("/cart")}>
+						<MdOutlineShoppingBag style={{ fontSize: "30px", color: "#000" }} />
+					</button>
+				</div>
 			</div>
 		</header>
 	);
