@@ -64,13 +64,15 @@ export default function Description() {
 		<>
 			<main className="description-main">
 				<section className="description-container">
-					<p className="cancel-slider">
+					<div className="cancel-slider">
 						<span>
 							<MdOutlineFreeCancellation />
 						</span>
-						You can return your order for any reason, free of charge, within
-						<b>60</b> days.
-					</p>
+						<p>
+							You can return your order for any reason, free of charge, within
+							<span className="day">60 days.</span>
+						</p>
+					</div>
 					<ul className="description-product-main-infos">
 						<li className="name">{shoe.productName}</li>
 						<li className="type">{shoe.productUserType}</li>

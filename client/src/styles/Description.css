@@ -8,14 +8,15 @@ main.description-main {
 	grid-template-columns: 1fr;
 	justify-items: center;
 	grid-gap: 2rem;
-	max-width: 1400px;
+	max-width: 1440px;
 	grid-template-columns: 1fr;
+	margin: auto;
 }
 
 /* return policy message styles */
 .cancel-slider {
 	background-color: #f6f6f6;
-	display: inline-flex;
+	display: flex;
 	align-items: center;
 	font-weight: 300;
 	font-size: 0.75rem;
@@ -27,8 +28,10 @@ main.description-main {
 	font-size: 1.5rem;
 	margin-right: 0.5rem;
 }
-.cancel-slider b {
+.cancel-slider span.day {
 	margin: 0 5px;
+	font-size: 0.75rem;
+	font-weight: 500;
 }
 /*  */
 .description-product-main-infos {
