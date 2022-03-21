@@ -78,9 +78,11 @@ export default function Cart() {
 				</article>
 				<article className="cart-items-container">{allItems}</article>
 				<article className="cart-summary">
-					<p>Order Summary</p>
+					<p className="summary">Order Summary</p>
 					<div className="amount">
-						<p>3 items</p>
+						<p>{`${cartItems.length} item${
+							cartItems.length > 1 ? "s" : ""
+						}`}</p>
 						<p>{`£${Math.round(totalPrice * 100) / 100}`}</p>
 					</div>
 					<div className="cart-summary-delivery">
