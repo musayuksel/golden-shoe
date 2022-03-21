@@ -3,10 +3,29 @@ import "../styles/Home.css";
 import ShoeCard from "../components/ShoeCard";
 import Categories from "../components/Categories";
 import getAndUpdateState from "../utils/getAndUpdateState";
+import shoe from "../styles/shoesPlaceholderImgs/men/1.jpeg";
+function importAll(r) {
+	let images = {};
+	r.keys().map((item, index) => {
+		images[item.replace("./", "")] = r(item);
+	});
+	return images;
+}
+
+const images = importAll(
+	require.context(
+		"../styles/shoesPlaceholderImgs/men",
+		false,
+		/\.(png|jpe?g|svg)$/
+	)
+);
+console.log("before=>", images);
 export function Home() {
 	const [allShoes, setAllShoes] = useState([]);
 	//get data from db and update state
 	useEffect(async () => getAndUpdateState("/all", setAllShoes), []);
+	const [imgURL, setImgURL] = useState("");
+	console.log("SONRA=>", images["1.jpeg"]);
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
@@ -30,8 +49,8 @@ export function Home() {
 		<main role="main">
 			<img
 				style={{ width: "100px", height: "100px", border: "2px solid red" }}
-				src={"http://localhost:3100/1.png"}
-				// src={"/1.png"}
+				// src={"http://localhost:3100/1.png"}
+				src={images["1.jpeg"].default}
 				alt="TEST"
 			/>
 			<Categories />
