@@ -24,7 +24,7 @@ export default function Navbar() {
 				<img src={logo} alt="logo" className="logo" />
 			</Link>
 			<nav className={`${isMenuOpen ? "open" : ""}`}>
-				<ul onClick={() => setIsMenuOpen((prev) => !prev)}>
+				<ul onClick={() => setIsMenuOpen(false)}>
 					<li>
 						<Link to="/men">MEN</Link>
 					</li>
