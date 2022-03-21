@@ -103,11 +103,18 @@ export default function Cart() {
 									setVoucherCode(e.target.value.toUpperCase().trim())
 								}
 							/>
-							<button type="submit">Add Voucher</button>
+							<button
+								className={`${voucherCode.length > 0 ? "open" : ""}`}
+								type="submit"
+							>
+								APPLY
+							</button>
 						</form>
 					</div>
 				</article>
-				<button onClick={() => handleCheckout()}>CHECKOUT</button>
+				<button className="checkout-btn" onClick={() => handleCheckout()}>
+					CHECKOUT
+				</button>
 			</section>
 		</>
 	);
