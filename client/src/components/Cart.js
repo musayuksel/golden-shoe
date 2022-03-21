@@ -5,6 +5,7 @@ import updateStockAmount from "../utils/updateStockAmount";
 import CartItem from "./CartItem";
 import LoadingAnimation from "./LoadingAnimation";
 import { applyVoucher, findTotalPrice } from "../utils/cartHelperFucntions";
+import { MdOutlineFreeCancellation } from "react-icons/md";
 
 export default function Cart() {
 	const [cartItems, setCartItems] = useState([]);
@@ -60,6 +61,13 @@ export default function Cart() {
 	return (
 		<>
 			<LoadingAnimation isLoading={isSubmitting} />
+			<div style={{ width: "100%" }}>
+				<p className="cancel-slider">
+					<span>{<MdOutlineFreeCancellation />}</span>
+					You can return your order for any reason, free of charge, within 60
+					days.
+				</p>
+			</div>
 			<section className="cart-page">
 				<article className="cart-header">
 					<h2>Your Bag</h2>
