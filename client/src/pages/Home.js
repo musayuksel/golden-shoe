@@ -28,9 +28,7 @@ export function Home() {
 			<img
 				style={{ width: "100px", height: "100px", border: "2px solid red" }}
 				// src={"http://localhost:3100/1.png"}
-				src={
-					"https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1626977428-altra-superior-5-10805-1621524145.jpg?crop=0.642xw:0.640xh;0.182xw,0.206xh&resize=480%3A%2A"
-				}
+				src={"/1.png"}
 				alt="TEST"
 			/>
 			<Categories />

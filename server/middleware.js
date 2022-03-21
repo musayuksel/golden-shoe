@@ -4,7 +4,6 @@ import path from "path";
 export const configuredHelmet = () =>
 	helmet({
 		contentSecurityPolicy: {
-			useDefaults: false,
 			directives: {
 				defaultSrc: ["'self'"],
 				objectSrc: ["'none'"],
