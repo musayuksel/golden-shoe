@@ -8,6 +8,7 @@ import { BsTwitter, BsFacebook, BsInstagram } from "react-icons/bs";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import "./styles/Main.css";
+import Return from "./components/Return";
 const App = () => (
 	<>
 		<Navbar />
@@ -19,6 +20,7 @@ const App = () => (
 			<Route path="/shoe/:shoesId" element={<Description />} />
 			<Route path="/cart" element={<Cart />} />
 			<Route path="/success" element={<Success />} />
+			<Route path="/return" element={<Return />} />
 			<Route path="*" element={<ErrorPage />} />
 		</Routes>
 		<footer>
