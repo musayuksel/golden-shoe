@@ -27,6 +27,9 @@ export default function Cart() {
 		() => localStorage.setItem("gs-cart", JSON.stringify(cartItems)),
 		[cartItems]
 	);
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 	// if amount of item change, update Total price
 	const totalPrice = findTotalPrice(cartItems);
 

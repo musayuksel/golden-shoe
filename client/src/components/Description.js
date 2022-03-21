@@ -41,7 +41,9 @@ export default function Description() {
 
 	//get data from db and update state
 	useEffect(() => getAndUpdateState(`/shoe/${shoesId}`, setShoe), [shoesId]);
-
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 	//find all sizes from stock
 	const sizesStock = findDifferentSizes(shoe.stock);
 	//assumption = every shoe has max 12 different size
