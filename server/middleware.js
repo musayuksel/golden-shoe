@@ -4,15 +4,17 @@ import path from "path";
 export const configuredHelmet = () =>
 	helmet({
 		contentSecurityPolicy: {
+			useDefaults: false,
 			directives: {
 				defaultSrc: ["'self'"],
 				objectSrc: ["'none'"],
 				scriptSrc: ["'self'", "unpkg.com", "polyfill.io"],
 				styleSrc: ["'self'", "https: 'unsafe-inline'"],
-				imgSrc: ["'self'", "https: data:"],
+				imgSrc: ["'self'", "http: data:"],
 				upgradeInsecureRequests: [],
 			},
 		},
+		crossOriginResourcePolicy: { policy: "cross-origin" },
 	});
 
 export const httpsOnly = () => (req, res, next) => {
@@ -23,6 +25,7 @@ export const httpsOnly = () => (req, res, next) => {
 };
 
 export const logErrors = () => (err, _, res, next) => {
+	console.log("**************************** logErrors being called...");
 	if (res.headersSent) {
 		return next(err);
 	}
@@ -31,6 +34,7 @@ export const logErrors = () => (err, _, res, next) => {
 };
 
 export const pushStateRouting = (apiRoot, staticDir) => (req, res, next) => {
+	console.log({ apiRoot, staticDir });
 	if (req.method === "GET" && !req.url.startsWith(apiRoot)) {
 		return res.sendFile(path.join(staticDir, "index.html"));
 	}
