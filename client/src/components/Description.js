@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import getAndUpdateState from "../utils/getAndUpdateState";
 import { nanoid } from "nanoid";
 import "../styles/Description.css";
@@ -74,6 +74,7 @@ export default function Description() {
 						<p>
 							You can return your order for any reason, free of charge, within
 							<span className="day">60 days.</span>
+							<Link to={"/return"}>More...</Link>
 						</p>
 					</div>
 					<ul className="description-product-main-infos">

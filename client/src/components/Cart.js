@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Cart.css";
 import updateStockAmount from "../utils/updateStockAmount";
 import CartItem from "./CartItem";
@@ -64,11 +64,14 @@ export default function Cart() {
 	return (
 		<>
 			<LoadingAnimation isLoading={isSubmitting} />
-			<div style={{ width: "100%" }}>
-				<p className="cancel-slider">
-					<span>{<MdOutlineFreeCancellation />}</span>
-					You can return your order for any reason, free of charge, within 60
-					days.
+			<div className="return-explanation" style={{ width: "100%" }}>
+				<span>
+					<MdOutlineFreeCancellation />
+				</span>
+				<p>
+					You can return your order for any reason, free of charge, within{" "}
+					<span className="day">60 days.</span>{" "}
+					<Link to={"/return"}>More...</Link>
 				</p>
 			</div>
 			<section className="cart-page">
