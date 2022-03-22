@@ -92,9 +92,15 @@ export default function Cart() {
 						<p>Delivery</p>
 						<p>FREE</p>
 					</div>
+					{voucherAmount > 0 && (
+						<div className="cart-summary-voucher">
+							<p>Voucher</p>
+							<p>- £ {voucherAmount}</p>
+						</div>
+					)}
 					<div className="cart-summary-total">
 						<p>TOTAL</p>
-						<p>{`£${Math.round(totalPrice * 100) / 100 - voucherAmount}`}</p>
+						<p>{`£${Math.round((totalPrice - voucherAmount) * 100) / 100}`}</p>
 					</div>
 					<div className="cart-summary-vouchers">
 						<form onSubmit={handleVoucher}>

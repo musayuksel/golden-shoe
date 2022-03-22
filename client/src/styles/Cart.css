@@ -90,12 +90,16 @@
 }
 .cart-summary-delivery,
 .cart-summary-total,
+.cart-summary-voucher,
 .cart-summary .amount {
 	display: flex;
 	justify-content: space-between;
 	margin: 0.5rem 0;
 }
-
+.cart-summary-voucher {
+	color: rgb(103, 170, 3);
+	font-weight: 500;
+}
 /* CHECKOUT BUTTON style */
 .checkout-btn {
 	background-color: var(--text-primary-color);
