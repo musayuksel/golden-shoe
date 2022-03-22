@@ -148,6 +148,11 @@
 		align-self: start;
 		margin: 0 auto;
 	}
+	.continue {
+		grid-area: continue;
+		align-self: end;
+		margin: 0 auto;
+	}
 	.cart-page {
 		grid-template-columns: 5fr 2fr;
 		grid-template-rows: 100px, 200px auto;
@@ -155,10 +160,7 @@
 		align-items: end;
 		grid-template-areas:
 			"cart-header cart-summary"
-			"cart-items checkout-btn";
-		/* "cart-items checkout-btn"; */
-		/* "cart-header cart-header"
-			"cart-items cart-summary"
-			"cart-items checkout-btn"; */
+			"cart-items checkout-btn"
+			"cart-items continue";
 	}
 }
