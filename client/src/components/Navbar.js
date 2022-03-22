@@ -26,13 +26,13 @@ export default function Navbar() {
 			<nav className={`${isMenuOpen ? "open" : ""}`}>
 				<ul onClick={() => setIsMenuOpen(false)}>
 					<li>
-						<Link to="/men">MEN</Link>
+						<Link to="/shoes/men">MEN</Link>
 					</li>
 					<li>
-						<Link to="/women">WOMEN</Link>
+						<Link to="/shoes/women">WOMEN</Link>
 					</li>
 					<li>
-						<Link to="/kids">KIDS</Link>
+						<Link to="/shoes/kids">KIDS</Link>
 					</li>
 				</ul>
 			</nav>
