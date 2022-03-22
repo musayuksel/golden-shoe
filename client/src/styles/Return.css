@@ -1,0 +1,39 @@
+main.return {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	font-weight: 300;
+	text-align: center;
+}
+main.return h2 {
+	margin-top: 3rem;
+}
+main.return .free {
+	padding: 1rem 0 3rem;
+}
+button.start-return {
+	background-color: var(--text-primary-color);
+	border: none;
+	border-radius: 50px;
+	color: #f7f5f5;
+	cursor: pointer;
+	margin: 1rem auto;
+	padding: 1rem 0;
+	text-align: center;
+	text-decoration: none;
+	transition: all 0.4s ease;
+	width: 80%;
+	max-width: 350px;
+}
+button.start-return:hover {
+	opacity: 0.8;
+}
+.how-to-return {
+	background-color: var(--border-secondary-color);
+	margin: 2rem 0;
+	padding: 2rem;
+}
+.how-to-return li {
+	padding: 1rem;
+	text-align: justify;
+}

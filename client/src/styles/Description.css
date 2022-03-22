@@ -46,9 +46,7 @@ main.description-main {
 	font-weight: 500;
 	/* font-style: italic; */
 }
-.description-product-main-infos .type {
-	/* font-weight: 300; */
-}
+
 .description-product-main-infos .price {
 	/* font-weight: 300; */
 	margin-top: 1.5rem;
@@ -149,6 +147,10 @@ main.description-main {
 }
 .add-to-cart:hover {
 	opacity: 0.8;
+}
+.add-to-cart.disabled {
+	background-color: var(--border-secondary-color);
+	cursor: not-allowed;
 }
 
 .description-free-pickup,

@@ -29,7 +29,7 @@ const App = () => (
 					<Link to={"/"}>Delivery</Link>{" "}
 				</li>
 				<li className="footer-item">
-					<Link to={"/"}>Returns & Refunds</Link>{" "}
+					<Link to={"/return"}>Returns & Refunds</Link>{" "}
 				</li>
 				<li className="footer-item">
 					<Link to={"/"}>Order Tracker</Link>{" "}
