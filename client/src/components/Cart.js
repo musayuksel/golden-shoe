@@ -52,6 +52,9 @@ export default function Cart() {
 			setVoucherCode("");
 		}
 	}
+	function handleContinue() {
+		navigate("/");
+	}
 
 	const allItems = cartItems.map((item) => (
 		<CartItem
@@ -126,6 +129,12 @@ export default function Cart() {
 				</article>
 				<button className="checkout-btn" onClick={() => handleCheckout()}>
 					CHECKOUT
+				</button>
+				<button
+					className="checkout-btn continue"
+					onClick={() => handleContinue()}
+				>
+					Continue to Shopping
 				</button>
 			</section>
 		</>

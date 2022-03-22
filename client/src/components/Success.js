@@ -6,7 +6,7 @@ export default function Success() {
 	useEffect(() => {
 		setTimeout(() => {
 			navigate("/");
-		}, 5000);
+		}, 10000);
 	}, []);
 
 	const day = new Date();
@@ -18,7 +18,7 @@ export default function Success() {
 			<h1>Checkout Success </h1>
 			<h2>Thank you for choosing us!!! </h2>
 			<h3>Our delivery dates will be {deliveryDay}</h3>
-			<p>You will redirect to the home page in 5 seconds...</p>
+			<p>You will redirect to the home page in 10 seconds...</p>
 			<button className="add-to-cart" onClick={() => navigate("/")}>
 				Return now
 			</button>
