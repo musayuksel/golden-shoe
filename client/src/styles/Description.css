@@ -64,7 +64,7 @@ main.description-main {
 .description-img-container img {
 	width: 100%;
 	height: 100%;
-	object-fit: contain;
+	object-fit: cover;
 }
 .img-icons-left,
 .img-icons-right,
@@ -72,7 +72,7 @@ main.description-main {
 	background-color: #ffffff00;
 	border: none;
 	cursor: pointer;
-	color: var(--border-secondary-color);
+	color: #aaa;
 	font-size: 20px;
 	position: absolute;
 	transition: all 0.5s ease;
