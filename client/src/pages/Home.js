@@ -3,9 +3,16 @@ import "../styles/Home.css";
 import ShoeCard from "../components/ShoeCard";
 import Categories from "../components/Categories";
 import getAndUpdateState from "../utils/getAndUpdateState";
+import { useParams } from "react-router-dom";
 
 export function Home() {
 	const [allShoes, setAllShoes] = useState([]);
+	const { userType } = useParams();
+	const filterKeyWord = userType ? userType : "";
+	const filteredDataForUsers = allShoes.filter(
+		(shoe) => shoe.productUserType.toLowerCase() === filterKeyWord
+	);
+
 	//get data from db and update state
 	useEffect(async () => getAndUpdateState("/all", setAllShoes), []);
 
@@ -19,7 +26,7 @@ export function Home() {
 	return (
 		<main role="main">
 			<Categories />
-			<ul className="shoe-cards-container">{shoes(allShoes)}</ul>
+			<ul className="shoe-cards-container">{shoes(filteredDataForUsers)}</ul>
 		</main>
 	);
 }
