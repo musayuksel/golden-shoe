@@ -17,6 +17,7 @@ import {
 	findDifferentSizes,
 } from "../utils/descriptionHelperFunctions";
 import EachSizeOfTable from "./EachSizeOfTable";
+import ImgTag from "./ImgTag";
 
 export default function Description() {
 	const { shoesId } = useParams();
@@ -28,7 +29,7 @@ export default function Description() {
 			productUserType: "Kids",
 			price: "45.99",
 			explanation: "Ready, Set, Run...",
-			imgLink: "https://api.lorem.space/image/shoes?w=250&h=250",
+			imgLink: "1.jpeg",
 			stock: [],
 		},
 	]); //destructure first element of arr
@@ -81,10 +82,11 @@ export default function Description() {
 						<li className="price">£{shoe.price}</li>
 					</ul>
 					<div className="description-img-container">
-						<img
-							className="description-img"
-							src="https://cdn.picpng.com/running_shoes/running-shoes-background-36306.png"
-							alt="img"
+						<ImgTag
+							userType={shoe.productUserType.toLowerCase()}
+							imgLink={shoe.imgLink}
+							alt={shoe.productName}
+							className={"description-img"}
 						/>
 						<button className="img-icons-left">
 							<BsArrowLeftCircle />

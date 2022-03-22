@@ -5,6 +5,7 @@ import {
 	dropdownOptions,
 } from "../utils/cartItemHelperFunctions";
 import { MdClose } from "react-icons/md";
+import ImgTag from "./ImgTag";
 
 export default function CartItem({
 	item,
@@ -26,10 +27,11 @@ export default function CartItem({
 	return (
 		<div className="cart-item">
 			<div className="cart-item-img-container">
-				<img
-					src="https://cdn.picpng.com/running_shoes/running-shoes-background-36306.png"
-					// src={item.imgLink}
+				<ImgTag
+					userType={item.productUserType.toLowerCase()}
+					imgLink={item.imgLink}
 					alt={item.productName}
+					className={"productImage"}
 				/>
 			</div>
 
