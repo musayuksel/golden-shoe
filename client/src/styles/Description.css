@@ -14,7 +14,8 @@ main.description-main {
 }
 
 /* return policy message styles */
-.cancel-slider {
+.cancel-slider,
+.return-explanation {
 	background-color: #f6f6f6;
 	display: flex;
 	align-items: center;
@@ -24,11 +25,13 @@ main.description-main {
 	text-align: justify;
 	width: 100%;
 }
-.cancel-slider span {
+.cancel-slider span,
+.return-explanation span {
 	font-size: 1.5rem;
 	margin-right: 0.5rem;
 }
-.cancel-slider span.day {
+.cancel-slider span.day,
+.return-explanation span.day {
 	margin: 0 5px;
 	font-size: 0.75rem;
 	font-weight: 500;
@@ -192,7 +195,8 @@ main.description-main {
 }
 
 @media screen and (min-width: 675px) {
-	.cancel-slider {
+	.cancel-slider,
+	.return-explanation {
 		justify-content: center;
 	}
 }
