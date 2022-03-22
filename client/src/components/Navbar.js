@@ -8,7 +8,7 @@ import {
 	MdOutlineMenu,
 	MdClose,
 } from "react-icons/md";
-export default function Navbar() {
+export default function Navbar({ setSearchKey }) {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const [isSearchOpen, setIsSearchOpen] = useState(false);
 	const navigate = useNavigate();
@@ -41,6 +41,7 @@ export default function Navbar() {
 					className={`${isSearchOpen ? "open" : ""}`}
 					type="text"
 					placeholder="Search...."
+					onChange={(e) => setSearchKey(e.target.value)}
 				/>
 				<MdSearch
 					onClick={() => setIsSearchOpen((prev) => !prev)}
