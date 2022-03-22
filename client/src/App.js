@@ -27,6 +27,9 @@ const App = () => (
 					<Link to={"/"}>Delivery</Link>{" "}
 				</li>
 				<li className="footer-item">
+					<Link to={"/"}>FAQ</Link>{" "}
+				</li>
+				<li className="footer-item">
 					<Link to={"/return"}>Returns & Refunds</Link>{" "}
 				</li>
 				<li className="footer-item">
