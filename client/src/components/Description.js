@@ -102,7 +102,11 @@ export default function Description() {
 						<span>Select size</span>
 						{sizeTable}
 					</ul>
-					<button className="add-to-cart" onClick={handleAddBag}>
+					<button
+						disabled={choosedShoeNum < 1}
+						className={`add-to-cart ${choosedShoeNum < 1 ? "disabled" : ""}`}
+						onClick={handleAddBag}
+					>
 						Add To Bag
 					</button>
 
