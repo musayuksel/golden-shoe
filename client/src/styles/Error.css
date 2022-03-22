@@ -1,0 +1,57 @@
+.error-container {
+	margin: auto;
+	text-align: center;
+	padding: 5rem;
+}
+
+.title {
+	font-size: 5rem;
+	text-decoration: underline var(--text-primary-color) 5px;
+}
+
+.sub-heading {
+	margin-top: 0.5rem;
+	font-size: 1.7rem;
+	color: var(--text-secondary-color);
+}
+
+.error-container .error-paragraph {
+	font-size: 1.1rem;
+	font-weight: 300;
+	font-style: italic;
+	margin-bottom: 3rem;
+	color: var(--text-secondary-color);
+}
+
+.go-home-page {
+	background-color: var(--text-primary-color);
+	border-radius: 5px;
+	color: #f7f5f5;
+	font-weight: 300;
+	margin: auto;
+	padding: 0.75rem 1.5rem;
+	text-decoration: none;
+	transition: all 0.4s ease;
+}
+
+.go-home-page:hover {
+	opacity: 0.8;
+}
+
+@media screen and (min-width: 992px) {
+	.title {
+		font-size: 7rem;
+	}
+
+	.sub-heading {
+		font-size: 2rem;
+		letter-spacing: 0.1rem;
+		margin-bottom: 1rem;
+	}
+
+	.error-paragraph {
+		margin-top: 0.5rem;
+		letter-spacing: 0.1rem;
+		font-size: 1.3rem;
+	}
+}
