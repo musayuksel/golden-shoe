@@ -9,10 +9,15 @@ export default function Success() {
 		}, 5000);
 	}, []);
 
+	const day = new Date();
+	let deliveryDay = day.setDate(day.getDate() + 7);
+	deliveryDay = day.toLocaleDateString("en");
+
 	return (
 		<section className="success">
 			<h1>Checkout Success </h1>
 			<h2>Thank you for choosing us!!! </h2>
+			<h3>Our delivery dates will be {deliveryDay}</h3>
 			<p>You will redirect to the home page in 5 seconds...</p>
 			<button className="add-to-cart" onClick={() => navigate("/")}>
 				Return now
