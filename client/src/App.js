@@ -12,7 +12,6 @@ import "./styles/Main.css";
 import Return from "./components/Return";
 const App = () => {
 	const [searchKey, setSearchKey] = useState("");
-	console.log({ searchKey });
 	return (
 		<>
 			<Navbar setSearchKey={setSearchKey} />
