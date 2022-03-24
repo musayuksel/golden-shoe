@@ -1,0 +1,93 @@
+/* Guide page*/
+.faq-container {
+	max-width: 1440px;
+	width: 80%;
+}
+.faq-container h1 {
+	padding: 1rem 0;
+}
+
+.question {
+	/* background-color: #ff0; */
+	border: 2px solid var(--border-primary-color);
+	border-radius: 0.25rem;
+	margin-bottom: 1rem;
+	padding: 0.75rem;
+}
+
+.question header {
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.question header h4 {
+	font-size: 1.2rem;
+	font-weight: 400;
+}
+
+.question header button {
+	background: white;
+	border: none;
+	border-radius: 50%;
+	font-size: 1.25rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #2e556b;
+	cursor: pointer;
+	align-self: center;
+	padding: 0.75rem;
+}
+.question p {
+	font-weight: 300;
+}
+
+/*
+* customer-service styles 
+*
+*/
+.customer-service-header {
+	margin: auto;
+	width: 80%;
+}
+.customer-service-header p {
+	font-weight: 300;
+	letter-spacing: 2px;
+}
+.contact-cards-container {
+	width: 95%;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+}
+.contact-cards-container article {
+	cursor: pointer;
+	margin-bottom: 2rem;
+	max-width: 350px;
+	padding: 0.5rem;
+}
+.contact-cards-container .icon {
+	font-size: 4rem;
+	padding: 2rem 0;
+	text-align: center;
+}
+.contact-cards-container p:last-child {
+	font-weight: 300;
+}
+
+@media screen and (min-width: 900px) {
+	.customer-service-header {
+		margin: 0;
+	}
+	.contact-cards-container {
+		flex-direction: row;
+	}
+	.contact-cards-container article {
+		margin: 2rem 1rem;
+		/* box-shadow: rgba(149, 157, 165, 0.25) 0px 8px 24px;
+		width: 250px; */
+	}
+}

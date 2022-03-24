@@ -15,7 +15,7 @@ function QuestionCards({ question, answer }) {
 	}
 	return (
 		<article className="question">
-			<header>
+			<header onClick={() => handleQuestionClick(setQuestionClicked)}>
 				<h4>{question}</h4>
 				<button
 					aria-label={questionClicked ? "hide answer" : "show answer"}
@@ -46,9 +46,11 @@ export default function FaqPage() {
 				<QuestionCards question="HOW DO I CHECK MY ORDER STATUS?" />
 			</section>
 			<section className="customer-service">
-				<h2>STILL CAN'T FIND YOUR ANSWER?</h2>
-				<p>ASK OUR CUSTOMER SERVICE</p>
-				<p>Mon - Fri : 9:00 AM to 5:00 PM </p>
+				<section className="customer-service-header">
+					<h2>STILL CAN'T FIND YOUR ANSWER?</h2>
+					<p>ASK OUR CUSTOMER SERVICE</p>
+					<p>Mon - Fri : 9:00 AM to 5:00 PM </p>
+				</section>
 				<section className="contact-cards-container">
 					<article className="call-golden-shoe">
 						<div className="icon">
