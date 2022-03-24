@@ -57,13 +57,25 @@ const App = () => {
 
 				<section>
 					<section className="social-links">
-						<a href="https://www.instagram.com/?hl=en" target={"_blank"}>
+						<a
+							aria-label="go to the Instagram"
+							href="https://www.instagram.com/?hl=en"
+							target={"_blank"}
+						>
 							<BsInstagram />
 						</a>
-						<a href="https://en-gb.facebook.com/" target={"_blank"}>
+						<a
+							aria-label="go to the Facebook"
+							href="https://en-gb.facebook.com/"
+							target={"_blank"}
+						>
 							<BsFacebook />
 						</a>
-						<a href="https://twitter.com/" target={"_blank"}>
+						<a
+							aria-label="go to the Twitter"
+							href="https://twitter.com/"
+							target={"_blank"}
+						>
 							<BsTwitter />
 						</a>
 					</section>

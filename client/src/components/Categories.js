@@ -23,7 +23,7 @@ export default function Categories() {
 	return (
 		<section className="category-main-container">
 			<ul className="category-list-container">{categoryList}</ul>
-			<button>
+			<button aria-label="Filter shoes">
 				<span>Filter</span> <MdOutlineFilterList />
 			</button>
 		</section>
