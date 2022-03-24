@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Home from "./pages/Home";
 import "./styles/Main.css";
 import Return from "./components/Return";
+import FaqPage from "./components/FaqPage";
 const App = () => {
 	const [searchKey, setSearchKey] = useState("");
 	return (
@@ -25,6 +26,7 @@ const App = () => {
 				<Route path="/cart" element={<Cart />} />
 				<Route path="/success" element={<Success />} />
 				<Route path="/return" element={<Return />} />
+				<Route path="/faq" element={<FaqPage />} />
 				<Route path="*" element={<ErrorPage />} />
 			</Routes>
 			<footer>
@@ -33,7 +35,7 @@ const App = () => {
 						<Link to={"/"}>Delivery</Link>{" "}
 					</li>
 					<li className="footer-item">
-						<Link to={"/"}>FAQ</Link>{" "}
+						<Link to={"/faq"}>FAQ</Link>{" "}
 					</li>
 					<li className="footer-item">
 						<Link to={"/return"}>Returns & Refunds</Link>{" "}
