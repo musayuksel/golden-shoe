@@ -89,13 +89,22 @@ export default function Description() {
 							alt={shoe.productName}
 							className={"description-img"}
 						/>
-						<button className="img-icons-left">
+						<button
+							aria-label="Go tho the previous image"
+							className="img-icons-left"
+						>
 							<BsArrowLeftCircle />
 						</button>
-						<button className="img-icons-right">
+						<button
+							aria-label="Go tho the next image"
+							className="img-icons-right"
+						>
 							<BsArrowRightCircle />
 						</button>
-						<button className="img-icons-360">
+						<button
+							aria-label="Look at the 360 deg image"
+							className="img-icons-360"
+						>
 							<MdOutline360 />
 						</button>
 					</div>

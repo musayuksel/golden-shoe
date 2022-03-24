@@ -15,6 +15,7 @@ export default function Navbar({ setSearchKey }) {
 	return (
 		<header>
 			<button
+				aria-label="hamburger menu"
 				className="hamburger"
 				onClick={() => setIsMenuOpen((prev) => !prev)}
 			>
@@ -48,7 +49,7 @@ export default function Navbar({ setSearchKey }) {
 					style={{ fontSize: "24px" }}
 				/>
 				<div className="nav-cart-icon">
-					<button onClick={() => navigate("/cart")}>
+					<button aria-label="go to the cart" onClick={() => navigate("/cart")}>
 						<MdOutlineShoppingBag style={{ fontSize: "30px", color: "#000" }} />
 					</button>
 				</div>
