@@ -6,7 +6,7 @@ export default function ShoeCard({ shoe }) {
 	//find how many differen color
 	const colourArr = shoe.stock.map((eachShoe) => eachShoe.colour);
 	const colourAmount = [...new Set(colourArr)].length;
-	const colourText = `${colourAmount} Colour${colourAmount > 1 && "s"}`;
+	const colourText = `${colourAmount} Colour${colourAmount > 1 ? "s" : ""}`;
 
 	return (
 		<Link to={`/shoe/${shoe.shoesId}`}>
