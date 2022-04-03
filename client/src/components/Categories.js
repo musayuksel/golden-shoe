@@ -2,21 +2,32 @@ import React from "react";
 import "../styles/Categories.css";
 import { MdOutlineFilterList } from "react-icons/md";
 
-export default function Categories() {
+export default function Categories({ setCategory }) {
 	const categoryArr = [
 		"All",
 		"Sale",
 		"Trainers",
 		"Running",
 		"Gym & Training",
+		"Golf",
 		"Football",
-		"Hiking & Outdoor",
+		"Outdoor",
 		"Walking",
 		"Basketball",
 		"Tennis",
 	];
 	const categoryList = categoryArr.map((category) => (
-		<li className="category-item" key={category}>
+		<li
+			onClick={() => {
+				if (category === "All") {
+					setCategory("");
+				} else {
+					setCategory(category);
+				}
+			}}
+			className="category-item"
+			key={category}
+		>
 			{category}
 		</li>
 	));
