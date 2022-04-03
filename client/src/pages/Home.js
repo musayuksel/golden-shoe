@@ -25,6 +25,10 @@ export function Home({ searchKey }) {
 	}
 	//get data from db and update state
 	useEffect(async () => getAndUpdateState("/all", setAllShoes), []);
+	//if user type change, reset category
+	useEffect(() => {
+		setCategory("");
+	}, [userType]);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
