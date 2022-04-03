@@ -6,7 +6,6 @@ import ErrorPage from "./components/ErrorPage";
 import Navbar from "./components/Navbar";
 import Success from "./components/Success";
 import { BsTwitter, BsFacebook, BsInstagram } from "react-icons/bs";
-import About from "./pages/About";
 import Home from "./pages/Home";
 import "./styles/Main.css";
 import Return from "./components/Return";
