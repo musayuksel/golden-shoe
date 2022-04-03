@@ -7,8 +7,8 @@ import { useParams } from "react-router-dom";
 
 export function Home({ searchKey }) {
 	const [allShoes, setAllShoes] = useState([]);
+	const [category, setCategory] = useState("");
 	const { userType } = useParams();
-
 	// const filterKeyWord = userType !== undefined ? userType : "";
 	function filterData() {
 		const filteredDataForUsers = allShoes.filter((shoe) => {
@@ -17,9 +17,10 @@ export function Home({ searchKey }) {
 		});
 		return filteredDataForUsers.filter(
 			(shoe) =>
-				shoe.productUserType.toLowerCase().includes(searchKey.toLowerCase()) ||
-				shoe.productName.toLowerCase().includes(searchKey.toLowerCase()) ||
-				shoe.category.toLowerCase().includes(searchKey.toLowerCase())
+				(shoe.productUserType.toLowerCase().includes(searchKey.toLowerCase()) ||
+					shoe.productName.toLowerCase().includes(searchKey.toLowerCase()) ||
+					shoe.category.toLowerCase().includes(searchKey.toLowerCase())) &&
+				shoe.category.toLowerCase().includes(category.toLowerCase())
 		);
 	}
 	//get data from db and update state
@@ -34,7 +35,7 @@ export function Home({ searchKey }) {
 	}
 	return (
 		<main role="main">
-			<Categories />
+			<Categories setCategory={setCategory} />
 			<ul className="shoe-cards-container">{shoes(filterData())}</ul>
 		</main>
 	);
