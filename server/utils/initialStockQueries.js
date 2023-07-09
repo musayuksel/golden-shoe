@@ -13,7 +13,7 @@ VALUES
 export const womenShoesTableQuery = `INSERT INTO shoes(id, productName, imgLinks, category, productUserType, price, explanation)
 VALUES
   (10,'Nike Air Max 2090','1.jpeg','Running','Women',149.99,'The Nike Air Max 2090 delivers a futuristic look while still paying homage to the iconic Air Max 90. A transparent mesh upper blends with timeless OG features for an edgy, modernized look.'),
-  (11,'Adidas Ultraboost 21','2.jpeg','Running','Women',179.99,'Experience the feeling of soft and responsive cushioning with every stride in these women\'s Ultraboost 21 running shoes. The streamlined design features adidas Primeknit upper that wraps the foot with an engineered fit for targeted support.'),
+  (11,'Adidas Ultraboost 21','2.jpeg','Running','Women',179.99,'Experience the feeling of soft and responsive cushioning with every stride in these womens Ultraboost 21 running shoes. The streamlined design features adidas Primeknit upper that wraps the foot with an engineered fit for targeted support.'),
   (12,'Vans Old Skool','3.jpeg','Skateboarding','Women',59.99,'The Old Skool, Vans classic skate shoe and the first to bear the iconic side stripe, has a low-top lace-up silhouette with a durable suede and canvas upper with padded tongue and lining and Vans signature Waffle Outsole.'),
   (13,'Converse Chuck Taylor All Star','4.jpeg','Casual','Women',49.99,'The Chuck Taylor All Star is the most iconic sneaker in the world, recognized for its unmistakable silhouette, star-centered ankle patch and cultural authenticity. And like the best paradigms, it only gets better with time.'),
   (14,'Puma Cali Sport Mix','5.jpeg','Casual','Women',69.99,'The Cali Sport Mix takes cues from the original California, a laid-back and effortlessly cool sneaker inspired by West Coast streetwear. The Cali Sport Mix features a mix of materials, a stacked sole, and laid-back design.'),
@@ -27,7 +27,7 @@ VALUES
 export const kidsShoesTableQuery = `INSERT INTO shoes(id, productName, imgLinks, category, productUserType, price, explanation)
 VALUES
   (21,'Nike Air Max 270','1.jpeg','Running','Kids',119.99,'The Nike Air Max 270 is the first-ever Air Max sneaker designed specifically for all-day comfort. The upper combines the exaggerated tongue from the Air Max 180 and classic elements from the Air Max 93. This version features a breathable mesh upper with no-sew overlays for a sleek look.'),
-  (22,'Adidas Ultraboost 21','2.jpeg','Running','Kids',179.99,'Experience the feeling of soft and responsive cushioning with every stride in these women\'s Ultraboost 21 running shoes. The streamlined design features adidas Primeknit upper that wraps the foot with an engineered fit for targeted support.'),
+  (22,'Adidas Ultraboost 21','2.jpeg','Running','Kids',179.99,'Experience the feeling of soft and responsive cushioning with every stride in these womens Ultraboost 21 running shoes. The streamlined design features adidas Primeknit upper that wraps the foot with an engineered fit for targeted support.'),
   (23,'Vans Old Skool','3.jpeg','Skateboarding','Kids',59.99,'The Old Skool, Vans classic skate shoe and the first to bear the iconic side stripe, has a low-top lace-up silhouette with a durable suede and canvas upper with padded tongue and lining and Vans signature Waffle Outsole.'),
   (24,'Converse Chuck Taylor All Star','4.jpeg','Casual','Kids',49.99,'The Chuck Taylor All Star is the most iconic sneaker in the world, recognized for its unmistakable silhouette, star-centered ankle patch and cultural authenticity. And like the best paradigms, it only gets better with time.'),
   (25,'Puma Cali Sport Mix','5.jpeg','Casual','Kids',69.99,'The Cali Sport Mix takes cues from the original California, a laid-back and effortlessly cool sneaker inspired by West Coast streetwear. The Cali Sport Mix features a mix of materials, a stacked sole, and laid-back design.'),
@@ -36,7 +36,7 @@ VALUES
   (28,'Skechers Go Walk 5','8.jpeg','Walking','Kids',64.99,'The Skechers GOwalk 5 is the most advanced walking shoe ever, with premium materials and innovative technologies that deliver the ultimate walking experience. The lightweight and responsive ULTRA GO cushioning and high-rebound COMFORT PILLAR TECHNOLOGY provide superior comfort.'),
   (29,'New Balance Fresh Foam 1080v11','9.jpeg','Running','Kids',149.99,'The Fresh Foam 1080v11 provides luxurious comfort for the long run. This soft, plush shoe features data-driven Fresh Foam technology for an ultra-cushioned, lightweight ride.');`;
 
-export const stockTableQuery = (
+export const menStockTableQuery = (
 	shoeId
 ) => `INSERT INTO stock(size, colour, amount, shoeId)
   VALUES
@@ -52,3 +52,37 @@ export const stockTableQuery = (
     (10, 'Black', 1, ${shoeId}),
     (10.5, 'Black', 1, ${shoeId}),
     (11, 'Black', 0, ${shoeId});`;
+
+export const womenStockTableQuery = (
+	shoeId
+) => `INSERT INTO stock(size, colour, amount, shoeId)
+  VALUES
+    (3.5, 'Black', 0, ${shoeId}),
+    (4, 'Black', 1, ${shoeId}),
+    (4.5, 'Black', 0, ${shoeId}),
+    (5, 'Black', 0, ${shoeId}),
+    (5.5, 'Black', 0, ${shoeId}),
+    (6, 'Black', 1, ${shoeId}),
+    (6.5, 'Black', 1, ${shoeId}),
+    (7, 'Black', 1, ${shoeId}),
+    (7.5, 'Black', 1, ${shoeId}),
+    (8, 'Black', 0, ${shoeId}),
+    (8.5, 'Black', 0, ${shoeId}),
+    (9, 'Black', 1, ${shoeId});`;
+
+export const kidStockTableQuery = (
+	shoeId
+) => `INSERT INTO stock(size, colour, amount, shoeId)
+VALUES
+    (2, 'Black', 1, ${shoeId}),
+    (2.5, 'Black', 0, ${shoeId}),
+    (3, 'Black', 1, ${shoeId}),
+    (3.5, 'Black', 0, ${shoeId}),
+    (4, 'Black', 1, ${shoeId}),
+    (4.5, 'Black', 0, ${shoeId}),
+    (5, 'Black', 0, ${shoeId}),
+    (5.5, 'Black', 0, ${shoeId}),
+    (6, 'Black', 1, ${shoeId}),
+    (6.5, 'Black', 1, ${shoeId}),
+    (7, 'Black', 1, ${shoeId}),
+    (7.5, 'Black', 1, ${shoeId});`;
